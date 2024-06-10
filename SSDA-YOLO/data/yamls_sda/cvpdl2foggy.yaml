@@ -1,0 +1,34 @@
+# PASCAL VOC dataset http://host.robots.ox.ac.uk/pascal/VOC/
+# Train command: python train.py --data VOC.yaml
+# Default dataset location is next to YOLOv5:
+#   /parent
+#     /datasets/VOC
+#     /yolov5
+
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: /home/mmlab206/CVPDL/HW3/SSDA_dataset
+# real train and val images (relative to 'path') of pascalvoc0712, including 5011(2501+2510)+11540(5717+5823)=16551 images
+train_source_real: 
+  - /home/mmlab206/CVPDL/HW3/SSDA_dataset/source_data/images/train
+  - /home/mmlab206/CVPDL/HW3/SSDA_dataset/source_data/images/val
+# fake train and val images (relative to 'path') of pascalvoc0712, with target-like images using cycleGAN
+train_source_fake: 
+  - /home/mmlab206/CVPDL/HW3/SSDA_dataset/source_data_fake/images/train
+  - /home/mmlab206/CVPDL/HW3/SSDA_dataset/source_data_fake/images/val
+# real train images (relative to 'path') of clipart1k, including 500 images
+train_target_real: 
+  - /home/mmlab206/CVPDL/HW3/SSDA_dataset/target_data/images/train
+# fake train images (relative to 'path') of clipart1k, with source-like images using cycleGAN
+train_target_fake: 
+  - /home/mmlab206/CVPDL/HW3/SSDA_dataset/target_fake_data/images/train
+
+# real val images (relative to 'path') of clipart1k, including 500 images, never appear when training 
+test_target_real: 
+  - /home/mmlab206/CVPDL/HW3/SSDA_dataset/target_data/images/val
+
+# Classes
+nc: 8  # number of classes
+names: [ 'person', 'car', 'truck', 'bus', 'rider', 'motorcycle', 'bicycle', 'train']  # class names
+
+
